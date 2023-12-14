@@ -2,7 +2,7 @@
 ## A fork of RedX1000's Alt1 plugin for logging clue rewards. This has been repurposed for Clue Events and sends the logged data of all users to a centralized log.
 ### How to install
  Copy and paste this link in your browser to install OpenLogger to Alt1 automatically <br>
-`alt1://addapp/https://davinci1080p.github.io/Clue_Event_Logger//appconfig.json` <br>
+`alt1://addapp/https://davinci1080p.github.io/Clue_Event_Logger/appconfig.json` <br>
 
  Or use direct link <br>
  https://davinci1080p.github.io/Clue_Event_Logger/ <br><br>
