@@ -1,4 +1,7 @@
-# OpenLogger
+# Clue Event Logger
+### A fork of RedX1000's Alt1 plugin for logging clue rewards. This has been repurposed for Clue Events and sends the logged data of all users to a centralized log.
+
+
 ### An open-source Alt1 Plugin designed for tracking clue rewards.
 #### Report bugs or questions, message me 🙂 -> Discord: RedX1000#3655
 #### RuneApps forum page: https://runeapps.org/forums/viewtopic.php?id=1442
