@@ -1,6 +1,6 @@
 # Clue Event Logger
 ## A fork of RedX1000's Alt1 plugin for logging clue rewards. This has been repurposed for Clue Events and sends the logged data of all users to a centralized log.
-### ### How to install
+### How to install
  Copy and paste this link in your browser to install OpenLogger to Alt1 automatically <br>
 `alt1://addapp/https://redx1000.github.io/OpenLogger/appconfig.json` <br>
 
