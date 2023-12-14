@@ -1,5 +1,6 @@
 # Clue Event Logger
-### A fork of RedX1000's Alt1 plugin for logging clue rewards. This has been repurposed for Clue Events and sends the logged data of all users to a centralized log.
+## A fork of RedX1000's Alt1 plugin for logging clue rewards. This has been repurposed for Clue Events and sends the logged data of all users to a centralized log.
+## The following is all from RedX1000:
 
 
 ### An open-source Alt1 Plugin designed for tracking clue rewards.
