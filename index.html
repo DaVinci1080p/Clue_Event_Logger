@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>OpenLogger: An open-source clue logger</title>
+		<title>ClueEventLogger: An open-source clue logger</title>
 
 		<script src="./index.bundle.js"></script>
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -13,7 +13,7 @@
 	</head>
 	<body class="nis" onload="TEST.initOnLoad()"></body> <!-- Keeping nis a class, was so in alt1minimal-->
 		<header>
-			<h1 id="title">OpenLogger, an open-source clue logger</h1>
+			<h1 id="title">ClueEventLogger, an open-source clue logger</h1>
 			<div id="header_box">
 				<div id="button_box">
 					<div id="clue_scrolls_buttons">
@@ -270,7 +270,7 @@
 							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetSettingsVerif" title="Reset settings back to default.">Reset settings</div>
 							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetTierVerif" title="Clear the currently selected tier of items only.">Clear <span class="current_tier_button"></span> tier items</div>
 							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetAllVerif" title="Clear all of the items in the database only.">Clear all tier items</div>
-							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetOpenVerif" title="Nuclear option, completely resets plugin, but can be used to troubleshoot">Reset OpenLogger</div>
+							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetOpenVerif" title="Nuclear option, completely resets plugin, but can be used to troubleshoot">Reset ClueEventLogger</div>
 							<div class="db_confirm_button nisbuttonblue" data-dismiss="modal" onclick="" title="Do nothing. Go. Get out of here. Leave.">Cancel</div>
 						</div>
 					</div>
@@ -280,14 +280,14 @@
 		</div>
 		<!-- END CLEAR OPTIONS MENU MODAL -->
 
-		<!-- RESET OPENLOGGER VERIFICATION MODAL -->
+		<!-- RESET ClueEventLogger VERIFICATION MODAL -->
 		<div class="modal fade " id="resetOpenVerif" tabindex="-1" role="dialog" aria-labelledby="important-msg-label" aria-hidden="true">
 			<div class="modal-dialog">
 			  	<div class="modal-content">
 					<div class="modal-header">
 				  		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close_x">&times;</span><span class="sr-only">Close</span></button>
 				  		<div class="modal-header-title">
-							<h1 class="modal-title" id="important-msg-label">Completely Reset OpenLogger?</h1>
+							<h1 class="modal-title" id="important-msg-label">Completely Reset ClueEventLogger?</h1>
 							<div class="hovertip" title="Hover over the options to learn more.&#010;&#010;Explore the Github link in the footer for more details.">&hairsp;&hairsp;&nbsp;?&nbsp;&hairsp;&hairsp;</div>
 						</div>
 					</div>
@@ -301,7 +301,7 @@
 			  	</div>
 			</div>
 		</div>
-		<!-- END RESET OPENLOGGER VERIFICATION MODAL -->
+		<!-- END RESET ClueEventLogger VERIFICATION MODAL -->
 
 		<!-- RESET ALL ITEMS VERIFICATION MODAL -->
 		<div class="modal fade " id="resetAllVerif" tabindex="-1" role="dialog" aria-labelledby="important-msg-label" aria-hidden="true">
@@ -537,7 +537,7 @@
 							</span><br>
 							<span style="color: rgb(45, 164, 201);">
 								<u>(2022/12/11)</u> <br>
-								Greatly tweaked the UI and functions for OpenLogger.<br>
+								Greatly tweaked the UI and functions for ClueEventLogger.<br>
 								<ul>
 									<li>UI should fit better for users with smaller screens</li>
 									<li>Style for History, Insert, and Settings should look better</li>
@@ -554,22 +554,22 @@
 							<span style="color: rgb(42,221,198);">
 								Note for people who installed the plugin between April and End of June:  <br>
 								Considering all of the updates that have happened in that timeframe and now, there may be some plugin-breaking side effects, such as incorrect scans or history logs. <br>
-								I strongly recommend going to Clear Options Menu and selecting Reset OpenLogger to have a fresh experience. <br>
+								I strongly recommend going to Clear Options Menu and selecting Reset ClueEventLogger to have a fresh experience. <br>
 								It may be worth exporting your CSV if you haven't done so yet.
 							</span>
 						</div><br style='line-height: 1px; content: " "; display: block; margin: 40px 0;'>
 						
 						<h2><u>Github & Discord</u></h2>
 						<div style="font-size: 15px; font-weight: 600;">
-							This is the OpenLogger Github page!<br>
+							This is the ClueEventLogger Github page!<br>
 							<a id="githublink" style="cursor: pointer" onclick="openGithub()">
-								Click here for the OpenLogger Github page
+								Click here for the ClueEventLogger Github page
 							</a><br>
 							The Github page contains:
 							<ul>
-								<li>Detailed instructions for how to use OpenLogger.</li>
-								<li>Troubleshooting tips for OpenLogger.</li>
-								<li>The host page that allows acces to OpenLogger.</li>
+								<li>Detailed instructions for how to use ClueEventLogger.</li>
+								<li>Troubleshooting tips for ClueEventLogger.</li>
+								<li>The host page that allows acces to ClueEventLogger.</li>
 								<li>All of the source code.</li>
 								<li>Special thanks.</li>
 								<li>Other projects I may be working on.</li>
@@ -579,8 +579,8 @@
 							This is my Discord profile! @ <span style="user-select: all; color:#FFC000">RedX1000#3655</span><br>
 							Feel free to reach out to me for any of the following reasons:<br>
 							<ul>
-								<li>Bug reports with OpenLogger.</li>
-								<li>Runescape updates breaking OpenLogger.</li>
+								<li>Bug reports with ClueEventLogger.</li>
+								<li>Runescape updates breaking ClueEventLogger.</li>
 								<li>Suggestions & Compliments.</li>
 								<li>Literally anything else within reason.</li>
 							</ul>
@@ -706,7 +706,7 @@
 			}
   		
 			function openGithub(){
-				window.open("https://github.com/RedX1000/OpenLogger")
+				window.open("https://github.com/RedX1000/ClueEventLogger")
 			}
 		</script>
 	</body>
