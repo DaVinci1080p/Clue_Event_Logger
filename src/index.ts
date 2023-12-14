@@ -36,11 +36,11 @@ var seeConsoleLogs = true;
 
 var tierlist = ["easy", "medium", "hard", "elite", "master"]
 
-var settingslist = ["OpenLogger/Checked button", "OpenLogger/Algorithm", "OpenLogger/ItemList", "OpenLogger/rerollToggle", "OpenLogger/lagDetect", 
-					"OpenLogger/multiButtonPressDetect",  "OpenLogger/hybridPrecision", "OpenLogger/noMenu", "OpenLogger/RollbackDisplayLimit"]
+var settingslist = ["ClueEventLogger/Checked button", "ClueEventLogger/Algorithm", "ClueEventLogger/ItemList", "ClueEventLogger/rerollToggle", "ClueEventLogger/lagDetect", 
+					"ClueEventLogger/multiButtonPressDetect",  "ClueEventLogger/hybridPrecision", "ClueEventLogger/noMenu", "ClueEventLogger/RollbackDisplayLimit"]
 
-var valuesAndCounts = ["OpenLogger/EValue", "OpenLogger/ECount", "OpenLogger/MValue", "OpenLogger/MCount", "OpenLogger/HValue", 
- 					   "OpenLogger/HCount", "OpenLogger/ElValue", "OpenLogger/ElCount", "OpenLogger/MaValue", "OpenLogger/MaCount"]
+var valuesAndCounts = ["ClueEventLogger/EValue", "ClueEventLogger/ECount", "ClueEventLogger/MValue", "ClueEventLogger/MCount", "ClueEventLogger/HValue", 
+ 					   "ClueEventLogger/HCount", "ClueEventLogger/ElValue", "ClueEventLogger/ElCount", "ClueEventLogger/MaValue", "ClueEventLogger/MaCount"]
 
 var rewardSlots = ["first_item", "second_item", "third_item", "fourth_item", "fifth_item", 
 					"sixth_item", "seventh_item", "eigth_item", "ninth_item"];
@@ -116,7 +116,7 @@ export async function initOnLoad() {
 		// TODO: Learn Refreshgroup and Freezegroup
 
 		alt1.overLaySetGroup("overlays");
-		alt1.overLayTextEx("Initializing OpenLogger...", a1lib.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 50000, "", true, true);
+		alt1.overLayTextEx("Initializing ClueEventLogger...", a1lib.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 50000, "", true, true);
 	}
 
 
@@ -144,14 +144,14 @@ async function keytransfer(){
 				   "MaValue", "MaCount", "autoCapture", "HistoryDisplayLimit", 
 				   "PrimaryKeyHistory", "History", "items", "autoCapture"]
 	
-	let newKeys = ["OpenLogger/Checked button", "OpenLogger/Algorithm", "OpenLogger/ItemList", 
-				   "OpenLogger/rerollToggle", "OpenLogger/lagDetect", "OpenLogger/multiButtonPressDetect",  
-				   "OpenLogger/hybridPrecision", "OpenLogger/noMenu", "OpenLogger/RollbackDisplayLimit", 
-				   "OpenLogger/EValue", "OpenLogger/ECount", "OpenLogger/MValue", "OpenLogger/MCount", 
-				   "OpenLogger/HValue", "OpenLogger/HCount", "OpenLogger/ElValue", "OpenLogger/ElCount", 
-				   "OpenLogger/MaValue", "OpenLogger/MaCount", "OpenLogger/autoCapture", 
-				   "OpenLogger/HistoryDisplayLimit", "OpenLogger/PrimaryKeyHistory", "OpenLogger/History", 
-				   "OpenLogger/items", "OpenLogger/autoCapture"]
+	let newKeys = ["ClueEventLogger/Checked button", "ClueEventLogger/Algorithm", "ClueEventLogger/ItemList", 
+				   "ClueEventLogger/rerollToggle", "ClueEventLogger/lagDetect", "ClueEventLogger/multiButtonPressDetect",  
+				   "ClueEventLogger/hybridPrecision", "ClueEventLogger/noMenu", "ClueEventLogger/RollbackDisplayLimit", 
+				   "ClueEventLogger/EValue", "ClueEventLogger/ECount", "ClueEventLogger/MValue", "ClueEventLogger/MCount", 
+				   "ClueEventLogger/HValue", "ClueEventLogger/HCount", "ClueEventLogger/ElValue", "ClueEventLogger/ElCount", 
+				   "ClueEventLogger/MaValue", "ClueEventLogger/MaCount", "ClueEventLogger/autoCapture", 
+				   "ClueEventLogger/HistoryDisplayLimit", "ClueEventLogger/PrimaryKeyHistory", "ClueEventLogger/History", 
+				   "ClueEventLogger/items", "ClueEventLogger/autoCapture"]
 	
 	for(let i = 0; i < oldKeys.length; i++){
 		if(localStorage.getItem(oldKeys[i]) != null){
@@ -175,8 +175,8 @@ export async function init() {
 	// Initializing LocalStorage items
 	if (seeConsoleLogs) console.log("Initializing LocalStorage items...");
 
-	if (localStorage.getItem("OpenLogger/items") == null) {
-		localStorage.setItem("OpenLogger/items", JSON.stringify(lsdb))
+	if (localStorage.getItem("ClueEventLogger/items") == null) {
+		localStorage.setItem("ClueEventLogger/items", JSON.stringify(lsdb))
 	}
 
 	for (let i = 0; i < valuesAndCounts.length; i++) {
@@ -185,7 +185,7 @@ export async function init() {
 		}
 	}
 
-	items = JSON.parse(localStorage.getItem("OpenLogger/items"));
+	items = JSON.parse(localStorage.getItem("ClueEventLogger/items"));
 
 
 	// This code should be able to save your data after the optimization update.
@@ -207,7 +207,7 @@ export async function init() {
 
 
 	if (seeConsoleLogs) console.log("Initializing radio buttons...");
-	if (localStorage.getItem("OpenLogger/Checked button") == null) { // Checked button init check
+	if (localStorage.getItem("ClueEventLogger/Checked button") == null) { // Checked button init check
 		if (seeConsoleLogs) console.log("Defaulting button to easy...");
 		let ele = document.getElementById("easy") as HTMLInputElement;
 		ele.checked = true;
@@ -216,11 +216,11 @@ export async function init() {
 			if (seeConsoleLogs) console.log("Setting tier spans to Easy");
 			tierSpans[i].textContent = "Easy";
 		}
-		localStorage.setItem("OpenLogger/Checked button", "easy");
+		localStorage.setItem("ClueEventLogger/Checked button", "easy");
 	}
 	else { // If it does, set the button and span
-		if (seeConsoleLogs) console.log("Setting previously set radio button: " + localStorage.getItem("OpenLogger/Checked button") + "...");
-		let temp = localStorage.getItem("OpenLogger/Checked button");
+		if (seeConsoleLogs) console.log("Setting previously set radio button: " + localStorage.getItem("ClueEventLogger/Checked button") + "...");
+		let temp = localStorage.getItem("ClueEventLogger/Checked button");
 		let ele = document.getElementById(temp) as HTMLInputElement;
 		ele.checked = true;	
 		let tierSpans = document.getElementsByClassName("current_tier_button") as HTMLCollectionOf<HTMLSpanElement>;
@@ -233,76 +233,76 @@ export async function init() {
 	if (seeConsoleLogs) console.log("Radio buttons initialized.");
 
 
-	if (localStorage.getItem("OpenLogger/Algorithm") == null) { // Algorithim init check
+	if (localStorage.getItem("ClueEventLogger/Algorithm") == null) { // Algorithim init check
 		if (seeConsoleLogs) console.log("Defaulting Algorithm button to Hybrid...");
-		localStorage.setItem("OpenLogger/Algorithm", "hybrid");
+		localStorage.setItem("ClueEventLogger/Algorithm", "hybrid");
 	}
 
-	if (localStorage.getItem("OpenLogger/ItemList") == null) { // Item Referense list init check
+	if (localStorage.getItem("ClueEventLogger/ItemList") == null) { // Item Referense list init check
 		if (seeConsoleLogs) console.log("Defaulting ItemList to Organized List...");
-		localStorage.setItem("OpenLogger/ItemList", "orglist");
+		localStorage.setItem("ClueEventLogger/ItemList", "orglist");
 	}
 
-	if (localStorage.getItem("OpenLogger/autoCapture") == null) { // Autocapture check
+	if (localStorage.getItem("ClueEventLogger/autoCapture") == null) { // Autocapture check
 		if (seeConsoleLogs) console.log("Defaulting autocapture to off...");
-		localStorage.setItem("OpenLogger/autoCapture", "false");
+		localStorage.setItem("ClueEventLogger/autoCapture", "false");
 	}
 
-	if (localStorage.getItem("OpenLogger/rerollToggle") == null) { // Reroll toggle check
+	if (localStorage.getItem("ClueEventLogger/rerollToggle") == null) { // Reroll toggle check
 		if (seeConsoleLogs) console.log("Defaulting reroll toggle to true...");
-		localStorage.setItem("OpenLogger/rerollToggle", "true");
+		localStorage.setItem("ClueEventLogger/rerollToggle", "true");
 	}
 
-	if (localStorage.getItem("OpenLogger/lagDetect") == null) { // Lag Detection toggle check
+	if (localStorage.getItem("ClueEventLogger/lagDetect") == null) { // Lag Detection toggle check
 		if (seeConsoleLogs) console.log("Defaulting lag detect to true...");
-		localStorage.setItem("OpenLogger/lagDetect", "true");
+		localStorage.setItem("ClueEventLogger/lagDetect", "true");
 	}
 
-	if (localStorage.getItem("OpenLogger/multiButtonPressDetect") == null) { // Button double press detection
+	if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") == null) { // Button double press detection
 		if (seeConsoleLogs) console.log("Defaulting multi button press detect to true...");
-		localStorage.setItem("OpenLogger/multiButtonPressDetect", "true");
+		localStorage.setItem("ClueEventLogger/multiButtonPressDetect", "true");
 	}
 
-	if (localStorage.getItem("OpenLogger/noMenu") == null) { // No hover display box
+	if (localStorage.getItem("ClueEventLogger/noMenu") == null) { // No hover display box
 		if (seeConsoleLogs) console.log("Defaulting no menu box to true");
-		localStorage.setItem("OpenLogger/noMenu", "false");
+		localStorage.setItem("ClueEventLogger/noMenu", "false");
 	}
-	else if (localStorage.getItem("OpenLogger/noMenu") == "true") {
+	else if (localStorage.getItem("ClueEventLogger/noMenu") == "true") {
 		if (seeConsoleLogs) console.log("Enabling no menu box");
 		noMenuCheck();
 	}
 
-	if (localStorage.getItem("OpenLogger/hybridPrecision") == null) { // Hybrid precision value
+	if (localStorage.getItem("ClueEventLogger/hybridPrecision") == null) { // Hybrid precision value
 		if (seeConsoleLogs) console.log("Defaulting hybridPrecision to 0.3...");
-		localStorage.setItem("OpenLogger/hybridPrecision", "0.3");
+		localStorage.setItem("ClueEventLogger/hybridPrecision", "0.3");
 	}
 
-	if (localStorage.getItem("OpenLogger/History") == null) { // History initializer
+	if (localStorage.getItem("ClueEventLogger/History") == null) { // History initializer
 		if (seeConsoleLogs) console.log("Creating history");
-		localStorage.setItem("OpenLogger/History",JSON.stringify([]));
+		localStorage.setItem("ClueEventLogger/History",JSON.stringify([]));
 	}
 
 	// This code should add the current date to your history log if it does not exist.
 	// This snippet can be removed a few months in the future or for future projects with this code.
 	// ~ 11/21/2022
-	let history = JSON.parse(localStorage.getItem("OpenLogger/History"))
+	let history = JSON.parse(localStorage.getItem("ClueEventLogger/History"))
 	for(let i = 0; i < history.length; i++){
 		if(history[i][6] == undefined){
 			history[i].push(await dateGetter())
 		}
 	}
-	localStorage.setItem("OpenLogger/History",JSON.stringify(history))
+	localStorage.setItem("ClueEventLogger/History",JSON.stringify(history))
 
 	
-	if (localStorage.getItem("OpenLogger/PrimaryKeyHistory") == null) { // Initialize primary key for history
+	if (localStorage.getItem("ClueEventLogger/PrimaryKeyHistory") == null) { // Initialize primary key for history
 		if (seeConsoleLogs) console.log("Defaulting PrimaryKeyHistory to 1");
-		localStorage.setItem("OpenLogger/PrimaryKeyHistory", "1");
+		localStorage.setItem("ClueEventLogger/PrimaryKeyHistory", "1");
 	}
 
 	
-	if (localStorage.getItem("OpenLogger/HistoryDisplayLimit") == null) { // Initialize history display limit
+	if (localStorage.getItem("ClueEventLogger/HistoryDisplayLimit") == null) { // Initialize history display limit
 		if (seeConsoleLogs) console.log("Defaulting history display limit to 25");
-		localStorage.setItem("OpenLogger/HistoryDisplayLimit", "25");
+		localStorage.setItem("ClueEventLogger/HistoryDisplayLimit", "25");
 	}
 	updateItems();
 
@@ -326,7 +326,7 @@ export async function init() {
 	if (window.alt1) {
 		alt1.overLayClearGroup("overlays");
 		alt1.overLaySetGroup("overlays");
-		alt1.overLayTextEx("OpenLogger ready!", a1lib.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 2000, "", true, true);
+		alt1.overLayTextEx("ClueEventLogger ready!", a1lib.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 2000, "", true, true);
 	}
 	
 	buttonEnabler();
@@ -348,7 +348,7 @@ export async function changeClueTierSpan(id: string, event: Event) {
 
 	if (seeConsoleLogs) console.log("Setting button to " + (id[0].toUpperCase() + id.slice(1).toLowerCase()) + "...");
 	(document.getElementById(id) as HTMLInputElement).checked = true;
-	localStorage.setItem("OpenLogger/Checked button", id);
+	localStorage.setItem("ClueEventLogger/Checked button", id);
 
 	let tierSpans = document.getElementsByClassName("current_tier_button") as HTMLCollectionOf<HTMLSpanElement>;
 	for (let i = 0; i < tierSpans.length; i++) {
@@ -394,13 +394,13 @@ export async function cleardb(choice: any) {
 		if (window.alt1) {
 			alt1.overLayClearGroup("overlays");
 			alt1.overLaySetGroup("overlays");
-			alt1.overLayTextEx("Resetting OpenLogger...", a1lib.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
+			alt1.overLayTextEx("Resetting ClueEventLogger...", a1lib.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
 		}
 
 		let ls = Object.keys(localStorage)
 		for(const i of ls){
-			if(i.includes("OpenLogger")){
-				console.log("Removing all OpenLogger stuff...")
+			if(i.includes("ClueEventLogger")){
+				console.log("Removing all ClueEventLogger stuff...")
 				localStorage.removeItem(i)
 			}
 		}
@@ -409,7 +409,7 @@ export async function cleardb(choice: any) {
 		if (window.alt1) {
 			alt1.overLayClearGroup("overlays");
 			alt1.overLaySetGroup("overlays");
-			alt1.overLayTextEx("OpenLogger successfully reset! Restarting...", a1lib.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
+			alt1.overLayTextEx("ClueEventLogger successfully reset! Restarting...", a1lib.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
 		}
 		await new Promise(resolve => setTimeout(resolve, 750));
 		location.reload();
@@ -441,8 +441,8 @@ export async function cleardb(choice: any) {
 			alt1.overLayTextEx("Reseting settings to default...", a1lib.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
 		}
 		
-		if (localStorage.getItem("OpenLogger/noMenu") === "true") {
-			localStorage.setItem("OpenLogger/noMenu", "false");
+		if (localStorage.getItem("ClueEventLogger/noMenu") === "true") {
+			localStorage.setItem("ClueEventLogger/noMenu", "false");
 			noMenuCheck();
 		}
 		for (let i = 0; i < settingslist.length; i++) {
@@ -472,13 +472,13 @@ export async function cleardb(choice: any) {
 		}
 		updateItems()
 
-		let lsHistory = JSON.parse(localStorage.getItem("OpenLogger/History"));
+		let lsHistory = JSON.parse(localStorage.getItem("ClueEventLogger/History"));
 		for (let i = lsHistory.length - 1; i >= 0; i--) {
 			if (lsHistory[i][3][0] == currentTier()[0] || lsHistory[i][3][0] == currentTier()[0] + " [C] ") {
 				lsHistory.splice(i, 1);
 			}
 		}
-		localStorage.setItem("OpenLogger/History",JSON.stringify(lsHistory));
+		localStorage.setItem("ClueEventLogger/History",JSON.stringify(lsHistory));
 
 		if (window.alt1) {
 			alt1.overLayClearGroup("overlays");
@@ -521,21 +521,21 @@ async function arraySetup() {
 	// Set new array of current tier
 	// Turning image collection into array
 	let arrayLength = 0;
-	if (localStorage.getItem("OpenLogger/ItemList") == "twoplus") {
+	if (localStorage.getItem("ClueEventLogger/ItemList") == "twoplus") {
 		listOfitemsTwoPlus = itemsTwoPlus.any.concat(itemsTwoPlus[currentTier()[0]]);
 		listOfItemslegacyTwoPlus = itemslegacyTwoPlus.any.concat(itemslegacyTwoPlus[currentTier()[0]]);
 		listOfitemsTwoPlusArray = [];
 		listOfItemslegacyTwoPlusArray = [];
 		arrayLength = listOfitemsTwoPlus.length;
 	}
-	else if (localStorage.getItem("OpenLogger/ItemList") == "orglist") {
+	else if (localStorage.getItem("ClueEventLogger/ItemList") == "orglist") {
 		listOfItemsOrgList = itemsOrgList.any.concat(itemsOrgList[currentTier()[0]]);
 		listOfItemsLegacyOrgList = itemsLegacyOrgList.any.concat(itemsLegacyOrgList[currentTier()[0]]);
 		listOfItemsOrgListArray = [];
 		listOfItemsLegacyOrgListArray = [];
 		arrayLength = listOfItemsOrgList.length;
 	}
-	else if (localStorage.getItem("OpenLogger/ItemList") == "orgminus") {
+	else if (localStorage.getItem("ClueEventLogger/ItemList") == "orgminus") {
 		listOfItemsOrgMinus = itemsOrgMinus.any.concat(itemsOrgMinus[currentTier()[0]]);
 		listOfItemsLegacyOrgMinus = itemsLegacyOrgMinus.any.concat(itemsLegacyOrgMinus[currentTier()[0]]);
 		listOfItemsOrgMinusArray = [];
@@ -547,7 +547,7 @@ async function arraySetup() {
 	// Setting Array items and ImageData arrays
 	let promises = [];
 	for (let i = 0; i < arrayLength; i++) {
-		if (localStorage.getItem("OpenLogger/ItemList") == "twoplus") {
+		if (localStorage.getItem("ClueEventLogger/ItemList") == "twoplus") {
 			if (i < listOfitemsTwoPlus.length) {
 				listOfitemsTwoPlusArray.push([listOfitemsTwoPlus[i].name, listOfitemsTwoPlus[i].base64, 0.0]);
 				promises.push(await _base64ToImageData(listOfitemsTwoPlusArray[i][1], 32, 32).then(data => { 
@@ -562,7 +562,7 @@ async function arraySetup() {
 			}
 		}
 
-		else if (localStorage.getItem("OpenLogger/ItemList") == "orglist") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "orglist") {
 			if (i < listOfItemsOrgList.length) {
 				listOfItemsOrgListArray.push([listOfItemsOrgList[i].name, listOfItemsOrgList[i].base64, 0.0]);
 				promises.push(await _base64ToImageData(listOfItemsOrgListArray[i][1], 32, 32).then(data => { 
@@ -577,7 +577,7 @@ async function arraySetup() {
 			}
 		}
 
-		else if (localStorage.getItem("OpenLogger/ItemList") == "orgminus") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "orgminus") {
 			if (i < listOfItemsOrgMinus.length) {
 				listOfItemsOrgMinusArray.push([listOfItemsOrgMinus[i].name, listOfItemsOrgMinus[i].base64, 0.0]);
 				promises.push(await _base64ToImageData(listOfItemsOrgMinusArray[i][1], 32, 32).then(data => { 
@@ -595,7 +595,7 @@ async function arraySetup() {
 	await Promise.all(promises);
 
 
-	if (localStorage.getItem("OpenLogger/ItemList") == "all") {
+	if (localStorage.getItem("ClueEventLogger/ItemList") == "all") {
 		listOfItemsAll = itemsTwoPlus.any.concat(itemsTwoPlus.easy).concat(itemsTwoPlus.medium).concat(itemsTwoPlus.hard).concat(itemsTwoPlus.elite).concat(itemsTwoPlus.master);
 		listOfItemsLegacyAll = itemslegacyTwoPlus.any.concat(itemslegacyTwoPlus.easy).concat(itemslegacyTwoPlus.medium).concat(itemslegacyTwoPlus.hard).concat(itemslegacyTwoPlus.elite).concat(itemslegacyTwoPlus.master);
 		listOfItemsAllArray = [];
@@ -641,7 +641,7 @@ export async function capture(autobool: boolean) {
 		return;
 	}
 
-	if (localStorage.getItem("OpenLogger/multiButtonPressDetect") === "true") {
+	if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") === "true") {
 		if (!autobool) {
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("onclick", "");
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("title", "Disabled while scanning. Please wait...");
@@ -657,7 +657,7 @@ export async function capture(autobool: boolean) {
 	await Promise.all(promises);
 	if (seeConsoleLogs) console.log("Finished checking clue scroll");
 
-	if (localStorage.getItem("OpenLogger/multiButtonPressDetect") === "true") {
+	if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") === "true") {
 		if (!autobool) {
 			await new Promise(resolve => setTimeout(function () {
 				(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("onclick", "TEST.capture(false)");
@@ -798,7 +798,7 @@ async function findtrailComplete(img: ImgRef, autobool: boolean) {
 		// Check if this is a reroll
 		let rerollVal = img.toData(loc[0].x + 231, loc[0].y + 175, 8, 9);
 
-		if (localStorage.getItem("OpenLogger/rerollToggle") == "true") {
+		if (localStorage.getItem("ClueEventLogger/rerollToggle") == "true") {
 			await rerollCheck(rerollVal, false);
 		}
 		else {
@@ -836,7 +836,7 @@ async function findtrailComplete(img: ImgRef, autobool: boolean) {
 			}
 			x1 += 40
 			promises.push(itemResults.push(await compareItems(crops[i])));
-			if (localStorage.getItem("OpenLogger/lagDetect") == "true") {
+			if (localStorage.getItem("ClueEventLogger/lagDetect") == "true") {
 				if (itemResults[i] == "Blank") {
 					notBlank = true;
 				}
@@ -855,7 +855,7 @@ async function findtrailComplete(img: ImgRef, autobool: boolean) {
 				}
 			}
 		}
-		if (localStorage.getItem("OpenLogger/lagDetect") == "true") {
+		if (localStorage.getItem("ClueEventLogger/lagDetect") == "true") {
 			for (let i = 0; i < itemResults.length; i++) {
 				if (itemResults[itemResults.length - 1] !== "Blank") {
 					break;
@@ -914,8 +914,8 @@ async function findtrailComplete(img: ImgRef, autobool: boolean) {
 									break;
 								}
 							}
-							let lsHistory = JSON.parse(localStorage.getItem("OpenLogger/History"))[JSON.parse(localStorage.getItem("OpenLogger/History")).length-1][0];
-							if (seeConsoleLogs) console.log("Checking arrays for equivalence:",JSON.parse(localStorage.getItem("OpenLogger/History"))[JSON.parse(localStorage.getItem("OpenLogger/History")).length-1][0], itemResultsNoBlanks);
+							let lsHistory = JSON.parse(localStorage.getItem("ClueEventLogger/History"))[JSON.parse(localStorage.getItem("ClueEventLogger/History")).length-1][0];
+							if (seeConsoleLogs) console.log("Checking arrays for equivalence:",JSON.parse(localStorage.getItem("ClueEventLogger/History"))[JSON.parse(localStorage.getItem("ClueEventLogger/History")).length-1][0], itemResultsNoBlanks);
 							if (lsHistory.join(",") === itemResultsNoBlanks.join(",")) { // https://stackoverflow.com/a/6230314
 								if (seeConsoleLogs) console.log(lsHistory.join(","), "and",itemResultsNoBlanks.join(","), "are the same...");
 								if (seeConsoleLogs) console.log("They're the same. Make it false.");
@@ -1101,31 +1101,31 @@ async function compareItems(item: ImageData) {
 
 	let matches = [];
 	if (!legacy) {
-		if (localStorage.getItem("OpenLogger/ItemList") == "all") {
+		if (localStorage.getItem("ClueEventLogger/ItemList") == "all") {
 			matches = listOfItemsAllArray.slice();
 		}
-		else if (localStorage.getItem("OpenLogger/ItemList") == "twoplus") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "twoplus") {
 			matches = listOfitemsTwoPlusArray.slice();
 		}
-		else if (localStorage.getItem("OpenLogger/ItemList") == "orglist") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "orglist") {
 			matches = listOfItemsOrgListArray.slice();
 		}
-		else if (localStorage.getItem("OpenLogger/ItemList") == "orgminus") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "orgminus") {
 			matches = listOfItemsOrgMinusArray.slice();
 		}
 	}
 
 	else { // Legacy works. But I don't test with it often. I think its okay...
-		if (localStorage.getItem("OpenLogger/ItemList") == "all") {
+		if (localStorage.getItem("ClueEventLogger/ItemList") == "all") {
 			matches = listOfItemsLegacyAllArray.slice();
 		}
-		else if (localStorage.getItem("OpenLogger/ItemList") == "twoplus") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "twoplus") {
 			matches = listOfItemslegacyTwoPlusArray.slice();
 		}
-		else if (localStorage.getItem("OpenLogger/ItemList") == "orglist") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "orglist") {
 			matches = listOfItemsLegacyOrgListArray.slice();
 		}
-		else if (localStorage.getItem("OpenLogger/ItemList") == "orgminus") {
+		else if (localStorage.getItem("ClueEventLogger/ItemList") == "orgminus") {
 			matches = listOfItemsLegacyOrgMinusArray.slice();
 		}
 	}
@@ -1139,7 +1139,7 @@ async function compareItems(item: ImageData) {
 	matches.shift(); // Remove blank from the list
 
 	let found = [];
-	if (localStorage.getItem("OpenLogger/Algorithm") == "resemblejs") {
+	if (localStorage.getItem("ClueEventLogger/Algorithm") == "resemblejs") {
 		found = matches[0];
 		const promises = [];
 
@@ -1154,7 +1154,7 @@ async function compareItems(item: ImageData) {
 		await Promise.all(promises);
 	}
 
-	else if (localStorage.getItem("OpenLogger/Algorithm") == "pixelmatch") {
+	else if (localStorage.getItem("ClueEventLogger/Algorithm") == "pixelmatch") {
 		/* List of items that do not identify in pure PixelMatch
 			- Huge Plated Adamant Salvage identifies as Huge Plated Rune Salvage when using TwoPlus or All
 		*/
@@ -1170,7 +1170,7 @@ async function compareItems(item: ImageData) {
 		await Promise.all(promises);
 	}
 
-	else if (localStorage.getItem("OpenLogger/Algorithm") == "hybrid") {
+	else if (localStorage.getItem("ClueEventLogger/Algorithm") == "hybrid") {
 		// First we check with Pixelmatch and get the comparison of everything to the item
 		let promises = [];
 		let total = 0;
@@ -1181,7 +1181,7 @@ async function compareItems(item: ImageData) {
 
 		// Then we get the average so we can remove half of the items that don't match
 		let average = total / matches.length;
-		let precision = parseFloat(localStorage.getItem("OpenLogger/hybridPrecision")); //1 does nothing
+		let precision = parseFloat(localStorage.getItem("ClueEventLogger/hybridPrecision")); //1 does nothing
 		await Promise.all(promises);
 		
 		// TODO: Consider combining this and the next for loop.
@@ -1466,12 +1466,12 @@ async function addHistoryToLs(value: number, items: any, quants: any, tier: any)
 
 	let currentDateTime = await dateGetter()
 
-	let previous = [items, quants, value, tier, localStorage.getItem(tier[2]), localStorage.getItem("OpenLogger/PrimaryKeyHistory"), currentDateTime];
-	let temp = JSON.parse(localStorage.getItem("OpenLogger/History"))
+	let previous = [items, quants, value, tier, localStorage.getItem(tier[2]), localStorage.getItem("ClueEventLogger/PrimaryKeyHistory"), currentDateTime];
+	let temp = JSON.parse(localStorage.getItem("ClueEventLogger/History"))
 	temp.push(previous);
 
-	localStorage.setItem("OpenLogger/History", JSON.stringify(temp));
-	localStorage.setItem("OpenLogger/PrimaryKeyHistory", JSON.stringify(parseInt(localStorage.getItem("OpenLogger/PrimaryKeyHistory")) + 1));
+	localStorage.setItem("ClueEventLogger/History", JSON.stringify(temp));
+	localStorage.setItem("ClueEventLogger/PrimaryKeyHistory", JSON.stringify(parseInt(localStorage.getItem("ClueEventLogger/PrimaryKeyHistory")) + 1));
 
 	await historyClear();
 	historyInit();
@@ -1540,7 +1540,7 @@ async function historyClear() {
 
 
 function rollbackFunc(valueClear: boolean) { // TODO: Edit this once you get the interface up and running... Consider sending in an index value...
-	let lsHistory = JSON.parse(localStorage.getItem("OpenLogger/History"));
+	let lsHistory = JSON.parse(localStorage.getItem("ClueEventLogger/History"));
 	let lastRoll = lsHistory[lsHistory.length - 1];
 	// The order of how History items are logged
 	// Index 0: Items (Array)
@@ -1566,7 +1566,7 @@ function rollbackFunc(valueClear: boolean) { // TODO: Edit this once you get the
 	localStorage.setItem(lastRoll[3][2], JSON.stringify(JSON.parse(localStorage.getItem(lastRoll[3][2])) - 1));
 
 	lsHistory.pop();
-	localStorage.setItem("OpenLogger/History", JSON.stringify(lsHistory));
+	localStorage.setItem("ClueEventLogger/History", JSON.stringify(lsHistory));
 	
 	if (valueClear) {
 		lastValue = 0;
@@ -1575,13 +1575,13 @@ function rollbackFunc(valueClear: boolean) { // TODO: Edit this once you get the
 
 
 function historyInit() {
-	let lsHistory = JSON.parse(localStorage.getItem("OpenLogger/History"))
+	let lsHistory = JSON.parse(localStorage.getItem("ClueEventLogger/History"))
 	
 	let title = document.getElementById("history_tier_caps") as HTMLDivElement;
 	title.textContent = currentTierUpper();
 
 	let quantity = document.getElementById("history_quantity") as HTMLDivElement;
-	quantity.textContent = localStorage.getItem("OpenLogger/HistoryDisplayLimit");
+	quantity.textContent = localStorage.getItem("ClueEventLogger/HistoryDisplayLimit");
 
 	if (lsHistory.length == 0) {
 		let ele = document.getElementById("history_body");
@@ -1594,7 +1594,7 @@ function historyInit() {
 		let index = parseInt(localStorage.getItem(currentTier()[2]));
 		let limit = 0;
 		for (let i = lsHistory.length - 1; i >= 0 ; i--) { //Navigating lsHistory
-			if (limit < parseInt(localStorage.getItem("OpenLogger/HistoryDisplayLimit"))) {
+			if (limit < parseInt(localStorage.getItem("ClueEventLogger/HistoryDisplayLimit"))) {
 				let temp = lsHistory[i];
 				if (temp[3][0].replace(" [C] ", "") === currentTier()[0]) {
 					let ele = document.getElementById("history_body") as HTMLDivElement;
@@ -1726,13 +1726,13 @@ export function rollbackYes(id: any) {
 
 	let pKey = parseInt(id.replace("container", "").replace("button", ""));
 
-	let lsHistory = JSON.parse(localStorage.getItem("OpenLogger/History"));
+	let lsHistory = JSON.parse(localStorage.getItem("ClueEventLogger/History"));
 	let temp = [];
 	for (let i = 0; i < lsHistory.length; i++) {
 		if (lsHistory[i][5] == pKey) {
 			temp = lsHistory[i];
 			lsHistory.splice(i, 1);
-			localStorage.setItem("OpenLogger/History",JSON.stringify(lsHistory));
+			localStorage.setItem("ClueEventLogger/History",JSON.stringify(lsHistory));
 			break;
 		}
 	}
@@ -1747,7 +1747,7 @@ export function rollbackYes(id: any) {
 	localStorage.setItem(temp[3][2], JSON.stringify(JSON.parse(localStorage.getItem(temp[3][2])) - 1));
 
 	if (seeConsoleLogs) console.log("Removed",temp, ":",pKey, "from LS");
-	if (pKey == ((parseInt(localStorage.getItem("OpenLogger/PrimaryKeyHistory"))) - 1)) {
+	if (pKey == ((parseInt(localStorage.getItem("ClueEventLogger/PrimaryKeyHistory"))) - 1)) {
 		(document.getElementById("rewards_value") as HTMLDivElement).textContent = "0";
 		for (let i = 0; i < 9; i++) {
 			(document.getElementById(rewardSlots[i]) as HTMLDivElement).textContent = "";
@@ -1757,7 +1757,7 @@ export function rollbackYes(id: any) {
 	let historyCount = document.getElementsByClassName("historyCount") as HTMLCollectionOf<HTMLDivElement>;
 	let index = parseInt(localStorage.getItem(currentTier()[2]));
 	for (let i = 0; i < parseInt(localStorage.getItem(currentTier()[2])); i++) {
-		if (i >= parseInt(localStorage.getItem("OpenLogger/RollbackDisplayLimit"))) {
+		if (i >= parseInt(localStorage.getItem("ClueEventLogger/RollbackDisplayLimit"))) {
 			break;
 		}
 		if (historyCount[i] == undefined) {
@@ -2052,63 +2052,63 @@ export function insertToDB() {
 export function settingsInit() {
 	if (seeConsoleLogs) console.log("Initializing settings...");
 
-	if (seeConsoleLogs) console.log("Setting previously set radio button for Algorithm: " + localStorage.getItem("OpenLogger/Algorithm") + "...");
-	let temp = localStorage.getItem("OpenLogger/Algorithm");
+	if (seeConsoleLogs) console.log("Setting previously set radio button for Algorithm: " + localStorage.getItem("ClueEventLogger/Algorithm") + "...");
+	let temp = localStorage.getItem("ClueEventLogger/Algorithm");
 	let ele = document.getElementById(temp) as HTMLInputElement;
 	ele.checked = true;
 
-	if (seeConsoleLogs) console.log("Setting previously set radio button for ItemList: " + localStorage.getItem("OpenLogger/ItemList") + "...");
-	temp = localStorage.getItem("OpenLogger/ItemList");
+	if (seeConsoleLogs) console.log("Setting previously set radio button for ItemList: " + localStorage.getItem("ClueEventLogger/ItemList") + "...");
+	temp = localStorage.getItem("ClueEventLogger/ItemList");
 	ele = document.getElementById(temp) as HTMLInputElement;
 	ele.checked = true;
 
-	if (seeConsoleLogs) console.log("Setting previously set radio button for rerollToggle: " + localStorage.getItem("OpenLogger/rerollToggle") + "...");
-	if (localStorage.getItem("OpenLogger/rerollToggle") == "true") {
+	if (seeConsoleLogs) console.log("Setting previously set radio button for rerollToggle: " + localStorage.getItem("ClueEventLogger/rerollToggle") + "...");
+	if (localStorage.getItem("ClueEventLogger/rerollToggle") == "true") {
 		ele = document.getElementById("rerollon") as HTMLInputElement;
 		ele.checked = true;
 	}
-	else if (localStorage.getItem("OpenLogger/rerollToggle") == "false") {
+	else if (localStorage.getItem("ClueEventLogger/rerollToggle") == "false") {
 		ele = document.getElementById("rerolloff") as HTMLInputElement;
 		ele.checked = true;
 	}
 
-	if (seeConsoleLogs) console.log("Setting previously set radio button for lagDetect: " + localStorage.getItem("OpenLogger/lagDetect") + "...");
-	if (localStorage.getItem("OpenLogger/lagDetect") == "true") {
+	if (seeConsoleLogs) console.log("Setting previously set radio button for lagDetect: " + localStorage.getItem("ClueEventLogger/lagDetect") + "...");
+	if (localStorage.getItem("ClueEventLogger/lagDetect") == "true") {
 		ele = document.getElementById("lagon") as HTMLInputElement;
 		ele.checked = true;
 	}
-	else if (localStorage.getItem("OpenLogger/lagDetect") == "false") {
+	else if (localStorage.getItem("ClueEventLogger/lagDetect") == "false") {
 		ele = document.getElementById("lagoff") as HTMLInputElement;
 		ele.checked = true;
 	}
 
-	if (seeConsoleLogs) console.log("Setting previously set radio button for MultiButtonPressDetect: " + localStorage.getItem("OpenLogger/multiButtonPressDetect") + "...");
-	if (localStorage.getItem("OpenLogger/multiButtonPressDetect") == "true") {
+	if (seeConsoleLogs) console.log("Setting previously set radio button for MultiButtonPressDetect: " + localStorage.getItem("ClueEventLogger/multiButtonPressDetect") + "...");
+	if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") == "true") {
 		ele = document.getElementById("multion") as HTMLInputElement;
 		ele.checked = true;
 	}
-	else if (localStorage.getItem("OpenLogger/multiButtonPressDetect") == "false") {
+	else if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") == "false") {
 		ele = document.getElementById("multioff") as HTMLInputElement;
 		ele.checked = true;
 	}
 
-	if (seeConsoleLogs) console.log("Setting previously set radio button for noMenu: " + localStorage.getItem("OpenLogger/noMenu") + "...");
-	if (localStorage.getItem("OpenLogger/noMenu") == "true") {
+	if (seeConsoleLogs) console.log("Setting previously set radio button for noMenu: " + localStorage.getItem("ClueEventLogger/noMenu") + "...");
+	if (localStorage.getItem("ClueEventLogger/noMenu") == "true") {
 		ele = document.getElementById("menuon") as HTMLInputElement;
 		ele.checked = true;
 	}
-	else if (localStorage.getItem("OpenLogger/noMenu") == "false") {
+	else if (localStorage.getItem("ClueEventLogger/noMenu") == "false") {
 		ele = document.getElementById("menuoff") as HTMLInputElement;
 		ele.checked = true;
 	}
 	
-	if (seeConsoleLogs) console.log("Setting previously set radio button for hybridPrecision: " + localStorage.getItem("OpenLogger/hybridPrecision") + "...");
+	if (seeConsoleLogs) console.log("Setting previously set radio button for hybridPrecision: " + localStorage.getItem("ClueEventLogger/hybridPrecision") + "...");
 	ele = document.getElementById("hybrid_precision") as HTMLInputElement;
-	ele.value = localStorage.getItem("OpenLogger/hybridPrecision");
+	ele.value = localStorage.getItem("ClueEventLogger/hybridPrecision");
 	
-	if (seeConsoleLogs) console.log("Setting previously set radio button for HistoryDisplayLimit: " + localStorage.getItem("OpenLogger/HistoryDisplayLimit") + "...");
+	if (seeConsoleLogs) console.log("Setting previously set radio button for HistoryDisplayLimit: " + localStorage.getItem("ClueEventLogger/HistoryDisplayLimit") + "...");
 	ele = document.getElementById("history_display_limit") as HTMLInputElement;
-	ele.value = localStorage.getItem("OpenLogger/HistoryDisplayLimit");
+	ele.value = localStorage.getItem("ClueEventLogger/HistoryDisplayLimit");
 
 	if (seeConsoleLogs) console.log("Settings initialized!");
 }
@@ -2122,25 +2122,25 @@ export async function saveSettings(alg: string, list: string, reroll: string, la
 		alt1.overLaySetGroup("overlays");
 		alt1.overLayTextEx("Saving settings...", a1lib.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 50000, "", true, true);
 	}
-	localStorage.setItem("OpenLogger/Algorithm", alg);
-	localStorage.setItem("OpenLogger/ItemList", list);
-	localStorage.setItem("OpenLogger/rerollToggle", reroll);
-	localStorage.setItem("OpenLogger/lagDetect", lag);
-	localStorage.setItem("OpenLogger/hybridPrecision", precision);
-	localStorage.setItem("OpenLogger/HistoryDisplayLimit", limit);
+	localStorage.setItem("ClueEventLogger/Algorithm", alg);
+	localStorage.setItem("ClueEventLogger/ItemList", list);
+	localStorage.setItem("ClueEventLogger/rerollToggle", reroll);
+	localStorage.setItem("ClueEventLogger/lagDetect", lag);
+	localStorage.setItem("ClueEventLogger/hybridPrecision", precision);
+	localStorage.setItem("ClueEventLogger/HistoryDisplayLimit", limit);
 
-	if (localStorage.getItem("OpenLogger/multiButtonPressDetect") !== multi) {
-		localStorage.setItem("OpenLogger/multiButtonPressDetect", multi);
+	if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") !== multi) {
+		localStorage.setItem("ClueEventLogger/multiButtonPressDetect", multi);
 		if (seeConsoleLogs) console.log("Adjusting saved values")
 		if (multi === "true") {
-			if (localStorage.getItem("OpenLogger/autoCapture") === "true") {
+			if (localStorage.getItem("ClueEventLogger/autoCapture") === "true") {
 				(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("onclick", "");
 				(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("title", "Disable autocapture to use this button");
 				(document.getElementById("docapturebuttonwords") as HTMLDivElement).style.setProperty("text-decoration", "line-through");
 			}
 		}
 		else if (multi === "false") {
-			if (localStorage.getItem("OpenLogger/autoCapture") === "true") {
+			if (localStorage.getItem("ClueEventLogger/autoCapture") === "true") {
 				(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("onclick", "TEST.capture(false)");
 				(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("title", "");
 				(document.getElementById("docapturebuttonwords") as HTMLDivElement).style.removeProperty("text-decoration");
@@ -2153,8 +2153,8 @@ export async function saveSettings(alg: string, list: string, reroll: string, la
 		}
 	}
 
-	if (localStorage.getItem("OpenLogger/noMenu") !== menu) {
-		localStorage.setItem("OpenLogger/noMenu", menu);
+	if (localStorage.getItem("ClueEventLogger/noMenu") !== menu) {
+		localStorage.setItem("ClueEventLogger/noMenu", menu);
 		noMenuCheck();
 	}
 
@@ -2183,7 +2183,7 @@ export function autoDisableCheckAuto(event: Event) {
 export function toggleCapture(event: Event) {
 	if ((document.getElementById("toggleunlocktrack") as HTMLDivElement).classList.contains("enabled")) {
 		(document.getElementById("toggleunlocktrack") as HTMLDivElement).classList.remove("enabled");
-		localStorage.setItem("OpenLogger/autoCapture", "false");
+		localStorage.setItem("ClueEventLogger/autoCapture", "false");
 		if (window.alt1) {
 			alt1.overLayClearGroup("overlays");
 			alt1.overLaySetGroup("overlays");
@@ -2192,7 +2192,7 @@ export function toggleCapture(event: Event) {
 	}
 	else {
 		(document.getElementById("toggleunlocktrack") as HTMLDivElement).classList.add("enabled");
-		localStorage.setItem("OpenLogger/autoCapture", "true");
+		localStorage.setItem("ClueEventLogger/autoCapture", "true");
 		if (window.alt1) {
 			alt1.overLayClearGroup("overlays");
 			alt1.overLaySetGroup("overlays");
@@ -2208,8 +2208,8 @@ export function toggleCapture(event: Event) {
 
 
 function autoCheck() {
-	if (localStorage.getItem("OpenLogger/autoCapture") === "true") {
-		if (localStorage.getItem("OpenLogger/multiButtonPressDetect") === "true") {
+	if (localStorage.getItem("ClueEventLogger/autoCapture") === "true") {
+		if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") === "true") {
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("onclick", "");
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("title", "Disable autocapture to use this button");
 			(document.getElementById("docapturebuttonwords") as HTMLDivElement).style.setProperty("text-decoration", "line-through");
@@ -2221,7 +2221,7 @@ function autoCheck() {
 		}, 1000);
 	}
 	else {
-		if (localStorage.getItem("OpenLogger/multiButtonPressDetect") === "true") {
+		if (localStorage.getItem("ClueEventLogger/multiButtonPressDetect") === "true") {
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("onclick", "TEST.capture(false)");
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("title", "");
 			(document.getElementById("docapturebuttonwords") as HTMLDivElement).style.removeProperty("text-decoration");
@@ -2238,7 +2238,7 @@ function autoCallCapture() {
 
 
 function noMenuCheck() {
-	if (localStorage.getItem("OpenLogger/noMenu") === "true") {
+	if (localStorage.getItem("ClueEventLogger/noMenu") === "true") {
 		noMenuInterval = window.setInterval(async function () {
 			let img = a1lib.captureHoldFullRs();
 			let loc = img.findSubimage(imgs.trailComplete);
@@ -2279,22 +2279,22 @@ export function exporttocsv() {
 	let csvinfo = [];
 	csvinfo.push(["Item", "Easy", "Medium", "Hard", "Elite", "Master"]);
 	
-	let lsHistory = JSON.parse(localStorage.getItem("OpenLogger/History"))
+	let lsHistory = JSON.parse(localStorage.getItem("ClueEventLogger/History"))
 	let keys = Object.keys(items);
 	let currOrder = 1;
 	if (seeConsoleLogs) console.log("Generating CSV...");
 	if (seeConsoleLogs) console.log("Getting values and counts...");
 
-	let eCount = parseInt(localStorage.getItem("OpenLogger/ECount"))
-	let eValue = parseInt(localStorage.getItem("OpenLogger/EValue"))
-	let mCount = parseInt(localStorage.getItem("OpenLogger/MCount"))
-	let mValue = parseInt(localStorage.getItem("OpenLogger/MValue"))
-	let hCount = parseInt(localStorage.getItem("OpenLogger/HCount"))
-	let hValue = parseInt(localStorage.getItem("OpenLogger/HValue"))
-	let elCount = parseInt(localStorage.getItem("OpenLogger/ElCount"))
-	let elValue = parseInt(localStorage.getItem("OpenLogger/ElValue"))
-	let maCount = parseInt(localStorage.getItem("OpenLogger/MaCount"))
-	let maValue = parseInt(localStorage.getItem("OpenLogger/MaValue"))
+	let eCount = parseInt(localStorage.getItem("ClueEventLogger/ECount"))
+	let eValue = parseInt(localStorage.getItem("ClueEventLogger/EValue"))
+	let mCount = parseInt(localStorage.getItem("ClueEventLogger/MCount"))
+	let mValue = parseInt(localStorage.getItem("ClueEventLogger/MValue"))
+	let hCount = parseInt(localStorage.getItem("ClueEventLogger/HCount"))
+	let hValue = parseInt(localStorage.getItem("ClueEventLogger/HValue"))
+	let elCount = parseInt(localStorage.getItem("ClueEventLogger/ElCount"))
+	let elValue = parseInt(localStorage.getItem("ClueEventLogger/ElValue"))
+	let maCount = parseInt(localStorage.getItem("ClueEventLogger/MaCount"))
+	let maValue = parseInt(localStorage.getItem("ClueEventLogger/MaValue"))
 
 	csvinfo.push(["Total Count", eCount.toString(), 
 								 mCount.toString(), 
@@ -2399,7 +2399,7 @@ export function exporttocsv() {
 		}
 		csvinfo.push(temp)
 	}
-	localStorage.setItem("OpenLogger/History", JSON.stringify(lsHistory))
+	localStorage.setItem("ClueEventLogger/History", JSON.stringify(lsHistory))
 
 	const d = new Date();
 	let hour = "0" + d.getHours().toString()
@@ -2413,7 +2413,7 @@ export function exporttocsv() {
 		csvContent += row + "\r\n";
 	});
 
-	let filename = "OpenLogger CSV " + (d.getFullYear() + "-" + month.slice(-2) + "-" + day.slice(-2) + "--" + hour.slice(-2) + "-" + minute.slice(-2) + "-" + second.slice(-2)) + ".csv";
+	let filename = "ClueEventLogger CSV " + (d.getFullYear() + "-" + month.slice(-2) + "-" + day.slice(-2) + "--" + hour.slice(-2) + "-" + minute.slice(-2) + "-" + second.slice(-2)) + ".csv";
 	let encodedUri = "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURI(csvContent);
 	let link = document.createElement("a") as HTMLAnchorElement;
 	link.setAttribute("href", encodedUri);
@@ -2525,19 +2525,19 @@ function currentTier() {
 		if ((document.getElementById(tierlist[i]) as HTMLInputElement).checked) {
 			currButton = tierlist[i];
 			if (currButton == "easy") {
-				return [currButton, "OpenLogger/EValue", "OpenLogger/ECount"];
+				return [currButton, "ClueEventLogger/EValue", "ClueEventLogger/ECount"];
 			}
 			else if (currButton == "medium") {
-				return [currButton, "OpenLogger/MValue", "OpenLogger/MCount"];
+				return [currButton, "ClueEventLogger/MValue", "ClueEventLogger/MCount"];
 			}
 			else if (currButton == "hard") {
-				return [currButton, "OpenLogger/HValue", "OpenLogger/HCount"];
+				return [currButton, "ClueEventLogger/HValue", "ClueEventLogger/HCount"];
 			}
 			else if (currButton == "elite") {
-				return [currButton, "OpenLogger/ElValue", "OpenLogger/ElCount"];
+				return [currButton, "ClueEventLogger/ElValue", "ClueEventLogger/ElCount"];
 			}
 			else if (currButton == "master") {
-				return [currButton, "OpenLogger/MaValue", "OpenLogger/MaCount"];
+				return [currButton, "ClueEventLogger/MaValue", "ClueEventLogger/MaCount"];
 			}
 		}
 	}
@@ -2675,7 +2675,7 @@ export function toggleLootDisplay(id: string) {
 
 
 function updateItems() {
-	localStorage.setItem("OpenLogger/items", JSON.stringify(items))
+	localStorage.setItem("ClueEventLogger/items", JSON.stringify(items))
 }
 
 
@@ -2738,7 +2738,7 @@ function orderChecker(order: number, item: string) {
 
 async function buttonDisabler() {
 		if (seeConsoleLogs) console.log("Disabling Buttons")
-		if (localStorage.getItem("OpenLogger/autoCapture") !== "true") {
+		if (localStorage.getItem("ClueEventLogger/autoCapture") !== "true") {
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("title", "Currently disabled to due initialization, settings being saved, or autocapture");
 			(document.getElementById("docapturebuttonwords") as HTMLDivElement).style.setProperty("text-decoration", "line-through");
 			(document.getElementById("docapturebutton") as HTMLDivElement).setAttribute("onclick", "");
